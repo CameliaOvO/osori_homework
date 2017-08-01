@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		OSORI website Homework
+	</title>
+</head>
+<body>
+<div id = "all_body">
+<header>
+	<div class = "dongmoon">
+		지금 동방 문은 <span class="check">열림</span>
+	</div>
+
+	<h1>
+		오소리
+	</h1>
+
+	<div class = "topmenu">
+				
+		{% if user.is_authenticated %}
+    <a href="{% url 'logout' %}" class="top-menu">logout</a>
+		{% else %}
+<a href="{% url 'login' %}" class="top-menu">login</a>
+{% endif %}
+
+	</div>
+</header>
+
+<nav class = "topnav">
+	<ul>
+		<li>동아리 소개</li>
+		<li>프로젝트 팀 내역</li>
+		<li><a href="{% url 'article_table' %}">게시판</a></li>
+		<li>사진첩</li>
+	</ul>
+
+</nav>
+
+<br>
+{% block content %}
+{% endblock %}
+<footer>
+	<div class = "copyright">
+	COPYRIGHT(C) 2017. All rights reserved by OSORI
+	</div>
+
+
+</footer>
+</div>
+</body>
+</html>

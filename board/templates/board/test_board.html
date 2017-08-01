@@ -1,0 +1,22 @@
+
+{% extends 'board/base_table.html' %}
+{% block artic %}
+<div>
+    <h1><a href="/">TEST BOARD</a></h1>
+{% if user.is_authenticated %}
+    <a href="{% url 'article_new' %}" class="top-menu">new post</a>
+    <a href="{% url 'logout' %}" class="top-menu">logout</a>
+
+{% else %}
+<a href="{% url 'login' %}" class="top-menu">login</a>
+{% endif %}
+</div>
+
+{% for article in articles %}
+    <div>
+        <h2><a href="{% url 'article_detail' pk=article.pk %}">{{ article.title }}</a></h2>
+        
+        <p>생성일자: {{ article.created_date }} Comments: {{ article.comments.count }}</p>
+    </div>
+{% endfor %}
+{% endblock %}
