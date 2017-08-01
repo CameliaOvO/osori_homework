@@ -1,6 +1,6 @@
 {% extends 'board/base_table.html' %}
 
-{% block artic %}
+{% block articled %}
     <h1>Article Editor</h1>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
